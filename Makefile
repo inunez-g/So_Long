@@ -6,7 +6,7 @@
 #    By: inunez-g <inunez-g@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 10:49:31 by inunez-g          #+#    #+#              #
-#    Updated: 2022/03/04 10:49:50 by inunez-g         ###   ########.fr        #
+#    Updated: 2022/03/04 11:08:31 by inunez-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ CC =	gcc
 OBJS = $(SRC:.c=.o)
 
 CFLAGS =	-Werror -Wextra -Wall #-g3 -fsanitize=address
+
+MAKE = make
 
 LIB2 =	libft/libft.a
 
@@ -42,12 +44,12 @@ $(LIB2): libft/*.c
 all: $(NAME)
 
 clean:
-	$(MAKE) -C Libft/ clean
+	$(MAKE) -C libft/ clean
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(LIB2)
 	rm -rf $(NAME)
-	rm -rf $(OBJS)
 
 re: fclean all
 

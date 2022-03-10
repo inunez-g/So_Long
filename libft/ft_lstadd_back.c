@@ -6,12 +6,12 @@
 /*   By: inunez-g <inunez-g@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 10:48:59 by inunez-g          #+#    #+#             */
-/*   Updated: 2022/02/17 10:48:34 by inunez-g         ###   ########.fr       */
+/*   Updated: 2022/03/04 11:09:41 by inunez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*s_list;

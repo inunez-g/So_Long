@@ -6,7 +6,7 @@
 /*   By: inunez-g <inunez-g@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 09:46:34 by inunez-g          #+#    #+#             */
-/*   Updated: 2022/03/04 10:50:48 by inunez-g         ###   ########.fr       */
+/*   Updated: 2022/03/04 11:51:13 by inunez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	bordes_validos(t_vars *vars, int i)
 			mapa_invalido();
 	}
 	j = vars->my_map.cols - 1;
+	i = 0;
 	while (i < vars->my_map.rows)
 	{
 		if (vars->my_map.map[i][0] == '1' && vars->my_map.map[i][j] == '1')

@@ -6,12 +6,11 @@
 /*   By: inunez-g <inunez-g@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:20:39 by inunez-g          #+#    #+#             */
-/*   Updated: 2022/03/04 10:48:27 by inunez-g         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:08:35 by inunez-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 int	closer(t_vars *vars)
 {
@@ -28,33 +27,32 @@ void	screen_moves(t_vars *vars)
 	vars->my_map.moves += 1;
 	move_count = ft_itoa(vars->my_map.moves);
 	color = 0x800080;
-	ft_put_image(vars, "so_long_objs/blacksq.xpm",
-		(vars->my_map.cols - 1), (vars->my_map.rows));
+	ft_put_image(vars, "so_long_objs/blacksqre.xpm",
+		(vars->my_map.cols - 2), (vars->my_map.rows));
 	mlx_string_put(vars->mlx, vars->win, vars->my_map.cols * TILE_SIZE - 80,
 		vars->my_map.rows * TILE_SIZE + 20, color, "Move: ");
-	mlx_string_put(vars->mlx, vars->win, vars->my_map.cols * TILE_SIZE - 30,
+	mlx_string_put(vars->mlx, vars->win, vars->my_map.cols * TILE_SIZE - 40,
 		vars->my_map.rows * TILE_SIZE + 20, color, move_count);
 }
 
 void	mapa_invalido(void)
 {
-	write(1, "¡ERROR! Invalid map.\n", 21);
+	write(2, "¡ERROR! Invalid map.\n", 21);
 	exit (0);
 }
 
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
-	t_data	data;
 
 	vars.my_map.cols = 0;
 	vars.my_map.rows = 0;
-	(void)data;
-	if (argc == 2)
+	if (argc == 2 && ft_strncmp(ft_strnstr(argv[1], ".ber",
+				ft_strlen(argv[1])), ".ber", 5) == 0)
 		get_map(argv[1], &vars);
 	else
 	{
-		write(1, "You must submit one map.\n", 25);
+		write(2, "You must submit one valid map.\n", 31);
 		return (0);
 	}
 	vars.mlx = mlx_init();
